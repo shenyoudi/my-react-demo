@@ -59,8 +59,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 import loadable form 'react-loadable'
 
 loadable({
-	loader: () => import(url),
-	loading: loading-Component
+  loader: () => import(url),
+  loading: loading-Component
 })
 ```
 
