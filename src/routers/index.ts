@@ -9,6 +9,7 @@ interface LazyComponent {
 interface Router {
 	path: string;
 	component: any;
+	children?: Router[];
 }
 
 function lazyComponent (name: string) {
@@ -21,8 +22,14 @@ const routers: Router[] = [
 		component: lazyComponent('Home')
 	},
 	{
-		path: '/page1',
-		component: lazyComponent('Page1')
+		path: '/page',
+		component: lazyComponent('Page'),
+		children: [
+			{
+				path: '/page/page1',
+				component: lazyComponent('Page1')
+			},
+		]
 	},
 	{
 		path: '/login',

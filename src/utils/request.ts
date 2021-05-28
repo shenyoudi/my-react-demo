@@ -15,7 +15,10 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
 	response => {
 		console.log('interceptors response 拦截 : ', response)
-		return response.data
+		if (response.data.code === 200) {
+			return response
+		}
+		return response
 	},
 	err => Promise.reject(err)
 )
