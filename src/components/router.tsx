@@ -17,9 +17,13 @@ export default class RouteHOC extends Component <any>{
 
 		if (token)
 			if (pathname === '/login')
-				return <Redirect to='/' />
+				return <Redirect to='/page-list' />
+			else if (pathname === '/')
+				return <Redirect to='/page-list' />
 			else if (targetRouterConfig)
 				return <Route exact path={pathname} component={targetRouterConfig.component}></Route>
+			else if (pathname.includes('/page-list'))
+				return <Redirect to={pathname} />
 			else
 				return <Redirect to='/404' />
 		

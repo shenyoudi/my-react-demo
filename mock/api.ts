@@ -6,7 +6,7 @@ export default [
 	{
 		url: '/getUser',
 		type: 'post',
-		response: config => ({
+		response: () => ({
 			code: 200,
 			data: {
 				token: Random.word(20)
