@@ -10,33 +10,46 @@ interface Router {
 	path: string;
 	name: string;
 	component: any;
-	children ?: Router[]
+	exact ?: boolean;
+	routes ?: Router[]
 }
 
 const routers: Router[] = [
 	{
 		path: '/',
 		name: 'home',
+		exact: true,
 		component: lazyComponent('Home'),
-	},
-	{
-		path: '/page-list',
-		name: 'page-list',
-		component: lazyComponent('PageList'),
-		children: [
-			{
-				path: '/',
-				name: 'home',
-				component: lazyComponent('Home')
-			},
+		/* routes: [
 			{
 				path: '/page0',
 				name: 'page0',
+				exact: true,
 				component: lazyComponent('Page0')
 			},
 			{
 				path: '/page1',
 				name: 'page1',
+				exact: true,
+				component: lazyComponent('Page1'),
+			}
+		] */
+	},
+	{
+		path: '/page-list',
+		name: 'page-list',
+		component: lazyComponent('PageList'),
+		routes: [
+			{
+				path: '/page-list/page0',
+				name: 'page0',
+				exact: true,
+				component: lazyComponent('Page0')
+			},
+			{
+				path: '/page-list/page1',
+				name: 'page1',
+				exact: true,
 				component: lazyComponent('Page1'),
 			}
 		]
@@ -44,27 +57,15 @@ const routers: Router[] = [
 	{
 		path: '/login',
 		name: 'login',
+		exact: true,
 		component: lazyComponent('Login'),
 	},
 	{
 		path: '/404',
 		name: '404',
+		exact: true,
 		component: Page404
 	}
 ]
-
-export function getRouters () {
-	let arr:any = []
-	routers.map((router) => {
-		arr.push(router)
-		router.hasOwnProperty('children') 
-		&&
-		arr.push(...(router as any).children.map((item: Router) => {
-			const path = item.path === '/' ? router.path : router.path+item.path
-			return Object.assign({}, item, {path})
-		}))
-	})
-	return arr
-}
 
 export default routers
