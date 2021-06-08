@@ -1,4 +1,4 @@
-import {Route, Redirect, Switch} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import RouterGuard from './routerGuard'
 
 export function RenderRoutesMap (routers: any) {
@@ -15,7 +15,7 @@ export function RenderRoutesMap (routers: any) {
 	))
 )}
 
-export default function RenderRoutes ({routes}: any) {
+function RenderRoutes ({routes}: any) {
 	//console.log('RenderRoutes', routes)
 	return (
 		<Switch>
@@ -23,3 +23,5 @@ export default function RenderRoutes ({routes}: any) {
 		</Switch>
 	)
 }
+
+export default RenderRoutes

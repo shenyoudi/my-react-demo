@@ -1,3 +1,4 @@
 export default {
-	getUser: '/getUser'
+	getUser: '/getUser',
+	getList: '/getList',
 }

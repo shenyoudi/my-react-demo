@@ -15,12 +15,12 @@ interface Router {
 }
 
 const routers: Router[] = [
-	{
+	/*{
 		path: '/',
 		name: 'home',
 		exact: true,
 		component: lazyComponent('Home'),
-		/* routes: [
+		 routes: [
 			{
 				path: '/page0',
 				name: 'page0',
@@ -33,8 +33,8 @@ const routers: Router[] = [
 				exact: true,
 				component: lazyComponent('Page1'),
 			}
-		] */
-	},
+		] 
+	},*/
 	{
 		path: '/page-list',
 		name: 'page-list',

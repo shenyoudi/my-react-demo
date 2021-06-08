@@ -1,4 +1,5 @@
 import Axios from 'axios'
+import {getToken} from './auth'
 
 const instance = Axios.create({
 	//baseUrl: '',
@@ -6,6 +7,7 @@ const instance = Axios.create({
 
 instance.interceptors.request.use(
 	config => {
+		const token = getToken()
 		console.log('interceptors request 拦截 : ', config)
 		return config
 	},

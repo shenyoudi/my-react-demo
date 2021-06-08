@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Nav from '../Nav/Nav'
-import {RenderRoutesMap} from '@/routers/router'
+import RenderRoutes from '@/routers/router'
 import './pagelist.scss'
 
 
@@ -12,7 +12,7 @@ export default class PageList extends Component{
 			<div className="pagelist">
 				<Nav></Nav>
 				<div className='pagelist__main'>
-					{RenderRoutesMap(routes)}
+					<RenderRoutes routes={routes}></RenderRoutes>
 				</div>
 			</div>
 		)

@@ -2,7 +2,7 @@ import { Component } from 'react'
 import {Redirect} from 'react-router-dom'
 //import { RenderRoutesMap } from './router'
 import {getToken} from '../utils/auth'
-import routers from '.';
+import Login from '@/views/Login/Login'
 
 class RouteGuard extends Component {
 	
@@ -16,8 +16,8 @@ class RouteGuard extends Component {
 											console.log('routePath: ', routePath, ', pathname: ', pathname)
 											return routePath === pathname
 										}) > -1 */
-
-		if (token)
+		console.log(Component, pathname, path)								
+		//if (token)
 			if (pathname === '/')
 				return <Redirect to='/page-list/page0' />	
 			else
@@ -26,8 +26,8 @@ class RouteGuard extends Component {
 					? Component.render({...this.props, routes}) 
 					: <Component {...this.props} routes={routes} />
 				)
-		else
-			return <Redirect to='/login'/>
+		//else
+			//return <Login></Login>
 	}
 }
 
